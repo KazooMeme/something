@@ -1,0 +1,9 @@
+.big-red-text {
+    color:rgb(255, 0, 0);
+    font-size: 3rem;
+}
+
+input[type="text"] {
+    padding: 1rem;
+    color: green;
+}
