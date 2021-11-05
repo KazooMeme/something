@@ -1,9 +1,159 @@
-.big-red-text {
-    color:rgb(255, 0, 0);
-    font-size: 3rem;
+/* 
+ * I've written a load of CSS below to style the page. It looks like a lot,
+ * but remember that each line is really short and just does one simple thing.
+ * I've commented almost every line (at least the first time it appears) to
+ * explain what it does. Most of these are around styling text, since that's 
+ * all we have on the page at the moment, but there is some stuff to do with the
+ * layout as well.
+ *
+ * Sorry it's a lot of reading! You're homework is at the bottom ;)
+ *
+ */
+
+
+/*
+ * The `*` selector selects _every_ element.
+ * What we're doing here is just resetting some basic styles. You'll remember that
+ * I mentioned that browsers have some "user-agent" styles built in to them. That's
+ * why, when you look at a webpage even when you haven't written any CSS yourself,
+ * you see things like the headings in bold, and with a certain amount of space around
+ * them. We want to get rid of some of these defaults, since they are different in
+ * different browsers. We get rid of all of the margin and padding, so we can re-apply
+ * the padding and margin that we want to certain elements further down the stylesheet.
+ *
+ */
+
+* {
+  /* get rid of the browser default margins on all elements */
+  margin: 0;
+  /* get rid of the browser default paddings on all elements. */
+  padding: 0;
+  /*
+   * this one's a little complicated. To understand what this line is doing, you need
+   * to understand the "box model" in CSS. Have a read of this article if you get time:
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model
+   *
+   * and then read this page to understand the `box-sizing` property itself:
+   * https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+   */
+  box-sizing: border-box;
 }
 
-input[type="text"] {
-    padding: 1rem;
-    color: green;
+/* select the `article` tag in our HTML. */
+article {
+  /*
+   * the `margin` property can accept anywhere between 1 - 4 values.
+   * If you just put one value, (e.g. `margin: 4px;`) then that margin will get applied to
+   * all 4 sides of an element. Here, we're specifying 2 values - one for each axis. So the
+   * `0` gets applied to the y-axis (top and bottom), and the `auto` value gets applied to the
+   * x-axis (left and right).
+   * `auto` means that the browser will figure out how much space is available and apply that
+   * much margin. This basically means that the article will be centered on the x-axis.
+   */
+  margin: 0 auto;
+  /* 
+   * It's not quite as simple as this, but for now, the best way of thinking of `padding-block`
+   * is as a shorthand for `padding-top` and `padding-bottom`. There's also `padding-inline`, which
+   * is a shorthand for `padding-left` and `padding-right`.
+   */
+  padding-block: 2rem;
+  /*
+   * The maximum width that the article can be. Here we use `ch` unit, which is short for "character"
+   * and `1ch` is basically the width of the `0` character in whatever font you're using.
+   */
+  max-width: 70ch;
 }
+
+/* select the `header` tag in our HTML */
+header {
+  /* 
+   * apply some margin to the bottom of the header, this means that the element below the header 
+   * will be pushed away a bit 
+   */
+  margin-bottom: 2rem;
+}
+
+/* target the `footer` tag in our HTML */
+footer {
+  padding-block: 4rem;
+  font-style: italic;
+  font-family: 'Helvetica', sans-serif;
+  color: grey;
+}
+
+/* target all the headings */
+h1, h2, h3,
+h4, h5, h6 {
+  /*
+   * set the font for the headings.
+   * There are some fonts that are considered "web safe", which
+   * basically means that they will always work. For other, more interesting
+   * fonts, you'd have to import/use the font files directly as part of your
+   * code because you can't rely on the machine that is viewing your website
+   * having the font installed. The bit after the comma is a "fallback". Basically,
+   * if the machine viewing the website can't render the text using "Georgia", it
+   * will pick any other default `serif` font that it has installed.
+   */
+  font-family: 'Georgia', serif;
+}
+
+/* select the `h1` tag in the HTML. */
+h1 {
+  /* make it large! */
+  font-size: 48px;
+  /*
+   * line-height is exactly what it sounds like, how tall each line should be.
+   * You can right this as a percentage, or as a basic number value like this.
+   * `1` would mean exactly the same height as the font being used. `2` would
+   * mean the lines are twice the height of the font etc.
+   */
+  line-height: 1.1;
+  /* put some margin to the bottom of the heading, to push away the following content. */
+  margin-bottom: 2rem;
+}
+
+/* select the `h2` and `h3` tags in the HTML */
+h2, h3 {
+  /* set the size, smaller than the `h1` */
+  font-size: 24px;
+  /* set the line-height, larger than the `h1`. General rule of thumb, the smaller the font, the larger the line-height can be. */
+  line-height: 1.4;
+  /* put some margin to the bottom of the headings, to push away the following content. */
+  margin-bottom: 1.4rem;
+}
+
+/* select the `p` tag in the HTML. `p` stands for "paragraph". */
+p {
+  /* set a font. If `helvetica` doesn't work for some reason, fallback to a system `sans-serif` font. */
+  font-family: 'Helvetica', sans-serif;
+  /* set the line height. */
+  line-height: 2;
+}
+
+/* target the `a` tag in the HTML. `a` stands for "anchor", and is used for links to other web pages. */
+a {
+  /* set the font-family for the links */
+  font-family: 'Georgia', serif;
+  /* set a color for the links */
+  color: red;
+}
+
+/* 
+ * Have a play with this file, change the values and see the difference it makes in the browser.
+ * Try and make sure you are confident in your understanding of what each property is doing. If anything
+ * really doesn't make sense at all, then just ask :)
+ * Also, see if you can add some styles. You may already be aware of, or might come across some css properties
+ * as you read and study, that you want to try and use.
+ * If you make any changes, commit them, push them and let me know and I'll have a look! Here's what you'll do:
+ *
+ * 1. make some changes in the css and/or html file
+ * 2. once you're happy with what you've done:
+ *    a. in the terminal run `git add .` to stage all of the files that you've changed.
+ *    b. run `git commit -m "<replace this with a descriptive message about what you've changed>".
+ *    c. you have now committed your work on your local machine, which is great, but for me to see it, you'll need to push it up to the remote repository.
+ *    d. run `git push origin main` to push your changes to the `main` branch on the remote.
+ *
+ * Our next step will be to get this project hosted locally (rather than just directly opening the file in a browser)
+ * which will allow us to set up multiple pages.
+ *
+ */

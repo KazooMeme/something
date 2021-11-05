@@ -1,17 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Hi Michael, have a read of the comments below and in the index.css file :) -->
+
 <head>
-    <link rel="stylesheet" href="index.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    I've added a couple of metatags here. You don't need to worry too much about these but they're 
+    quite commonly used, so I thought I'd demonstrate them. The ones that start `og:` in particular, are
+    used by Facebook, when you paste a link into your post and it shows a little preview of the webpage,
+    it's getting the information from these metatags. OG stands for "Open Graph", you don't need to, but you
+    can read more about it here: https://ogp.me/
+  -->
+  <meta property="og:title" content="Home - our website">
+  <meta property="og:description" content="Everything that happens no this site is all about learning web development.">
+  <link rel="stylesheet" href="index.css">
+
+  <!--
+    It's a convention/best practice to include your site name in the title, and to use `-` as a separator.
+  -->
+  <title>Home - Our website</title>
 </head>
+
 <body>
+
+  <!--
+    Ok, so this is where the content of our site actually starts. I've added in a load of "semantic HTML".
+    - `<article>` is a tag that basically declares it's contents are a self-contained work. Everything within an
+      article tag should relate to the same topic/heading.
+    - An `article` is made up of 3 bits here: 'header', 'main' and 'footer'. You don't have to use these within an
+      article exclusively, but this is a common structure.
+    - `<header>` - This will typically the main navigation of the site, and sometimes some content like a banner.
+    - `<main>` - fairly self-explanatory, all the main content of the page goes in here.
+    - `<footer>` - most sites have a footer, it normally contains some links off to other pages, maybe some small-print 
+      copyright information etc.
+  -->
+  <article>
+    <header>
+      <!--
+        the `<nav>` tag should be used for navigation. The navigation items themselves are a list of links,
+        so that's reflected in the markup. The `aria-label` attribute is an a11y thing. There are loads of
+        `aria` attributes you can put on your HTML tags to help with accessibility. This is a good thing to
+        be aware of, but not something you need to take a deep-dive on just yet. If you're interested, you
+        can read a bit more here: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA
+      -->
+      <nav aria-label="main">
+        <ul>
+          <!--
+            you'll notice clicking on these links in the browser doesn't work at the moment. We'll need
+            to "host" our project first. We'll look at this next, once we're confident with the basic HTML
+            and CSS that we've got going on here.
+          -->
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
     <main>
-        <h1 class="big-red-text">this is the title</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, vero et? Necessitatibus quis ratione alias molestias perferendis dicta. Exercitationem placeat non repellendus aliquam accusantium doloremque id soluta rerum suscipit numquam.</p>
-        <input type="text" name="username" placeholder="Type your name">
+      <section>
+        <h1>Our website</h1>
+        <h2>Everything that happens on this site is all about learning web development.</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quisquam voluptatem excepturi similique
+          praesentium, dolore ex assumenda illo culpa earum at! Suscipit dolore illum saepe est nisi, iure error nihil.
+        </p>
+      </section>
     </main>
+    <footer>
+      <p>
+        You might typically put some links down here for social media, or something about who built the website etc.
+      </p>
+    </footer>
+  </article>
 </body>
+
 </html>
